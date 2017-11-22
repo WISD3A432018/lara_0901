@@ -46,7 +46,12 @@
                         <td>
                             <a href="{{ route('admin.posts.edit', $post->id) }}">編輯</a>
                             /
-                            <a href="#">刪除</a>
+                            <a><form action="{{ route('admin.posts.destroy', $post->id) }}" method="POST">
+                                    {{ csrf_field() }}
+                                    {{ method_field('DELETE') }}
+                                    <button class="btn btn-link">刪除</button>
+                                </form>
+                            </a>
                         </td>
                     </tr>
                 @endforeach
